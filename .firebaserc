@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "reciclando-firebase": {
+      "hosting": {
+        "app": [
+          "reciclando-firebase"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "reciclando-firebase"
+  }
+}
