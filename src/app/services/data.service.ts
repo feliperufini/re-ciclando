@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { addDoc, collectionData, collection, doc, docData, Firestore, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
-export interface Note{
+export interface Product{
   id?: string;
   title: string;
-  text: string;
+  description: string;
+  amount: number;
+  coin: number;
+  image: string;
 }
 
 @Injectable({
@@ -15,28 +18,34 @@ export class DataService {
 
   constructor(private firestore:Firestore) { }
 
-  getNotes(): Observable<Note[]>{
-    const notesRef = collection(this.firestore, 'notes');
-    return collectionData(notesRef, { idField: 'id' }) as Observable<Note[]>;
+  getProducts(): Observable<Product[]>{
+    const productsRef = collection(this.firestore, 'products');
+    return collectionData(productsRef, { idField: 'id' }) as Observable<Product[]>;
   }
 
-  getNoteById(id): Observable<Note>{
-    const noteDocRef = doc(this.firestore, `notes/${id}`);
-    return docData(noteDocRef, { idField: 'id' }) as Observable<Note>;
+  getProductById(id): Observable<Product>{
+    const productDocRef = doc(this.firestore, `products/${id}`);
+    return docData(productDocRef, { idField: 'id' }) as Observable<Product>;
   }
 
-  addNote(note: Note){
-    const notesRef = collection(this.firestore, 'notes');
-    return addDoc(notesRef, note);
+  addProduct(product: Product){
+    const productsRef = collection(this.firestore, 'products');
+    return addDoc(productsRef, product);
   }
 
-  deleteNote(note: Note){
-    const noteDocRef = doc(this.firestore, `notes/${note.id}`);
-    return deleteDoc(noteDocRef);
+  deleteProduct(product: Product){
+    const productDocRef = doc(this.firestore, `products/${product.id}`);
+    return deleteDoc(productDocRef);
   }
 
-  updateNote(note: Note){
-    const noteDocRef = doc(this.firestore, `notes/${note.id}`);
-    return updateDoc(noteDocRef, {title: note.title, text: note.text});
+  updateProduct(product: Product){
+    const productDocRef = doc(this.firestore, `products/${product.id}`);
+    return updateDoc(productDocRef, {
+      title: product.title,
+      description: product.description,
+      amount: product.amount,
+      coin: product.coin,
+      image: product.image
+    });
   }
 }

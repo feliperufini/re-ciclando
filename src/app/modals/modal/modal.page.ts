@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
-import { DataService, Note } from '../services/data.service';
+import { DataService, Product } from '../../services/data.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,32 +9,33 @@ import { DataService, Note } from '../services/data.service';
 })
 export class ModalPage implements OnInit {
   @Input() id: string;
-  note: Note = null;
+  product: Product = null;
 
   constructor(private dataService:DataService, private modalCtrl:ModalController, private toastCtrl:ToastController) { }
 
   ngOnInit() {
-    this.dataService.getNoteById(this.id).subscribe(res => {
-      this.note = res;
+    this.dataService.getProductById(this.id).subscribe(res => {
+      this.product = res;
     });
   }
 
-  async updateNote(){
-    this.dataService.updateNote(this.note);
+  async updateProduct(){
+    this.dataService.updateProduct(this.product);
     const toast = await this.toastCtrl.create({
-      message: 'Nota atualizada!',
+      message: 'Produto atualizado!',
       duration: 2000
     });
     toast.present();
-  }
-
-  async deleteNote(){
-    this.dataService.deleteNote(this.note);
     this.modalCtrl.dismiss();
+  }
+
+  async deleteProduct(){
+    this.dataService.deleteProduct(this.product);
     const toast = await this.toastCtrl.create({
-      message: 'Nota excluída!',
+      message: 'Produto excluído!',
       duration: 2000
     });
     toast.present();
+    this.modalCtrl.dismiss();
   }
 }

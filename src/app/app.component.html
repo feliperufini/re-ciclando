@@ -1,3 +1,46 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+	<ion-split-pane contentId="main-content">
+		<ion-menu contentId="main-content" type="overlay">
+			<ion-content>
+				<ion-list class="ml-1" id="inbox-list">
+					<ion-avatar class="mb-1" slot="start">
+						<img src="https://ionicframework.com/docs/demos/api/list/avatar-luke.png" />
+					</ion-avatar>
+					<ion-list-header>Felipe Andrade</ion-list-header>
+					<ion-note>felipe.andrade@gmail.com</ion-note>
+				</ion-list>
+				<ion-list id="inbox-list">
+					<ion-menu-toggle auto-hide="false" *ngFor="let item of menuItems; let i = index">
+						<ion-item routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false"
+							routerLinkActive="selected">
+							<ion-icon slot="start" [ios]="item.icon" [md]="item.icon"></ion-icon>
+							<ion-label>{{ item.title }}</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+				</ion-list>
+				<ion-list id="admin-list">
+					<ion-item-divider>
+						<ion-label>
+							Administrador
+						</ion-label>
+					</ion-item-divider>
+					<ion-menu-toggle auto-hide="false">
+						<ion-item routerDirection="root" [routerLink]="['/product']" lines="none" detail="false">
+							<ion-icon slot="start" name="pricetags-outline"></ion-icon>
+							<ion-label>Produtos</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+				</ion-list>
+				<ion-list id="outbox-list">
+					<ion-menu-toggle auto-hide="false">
+						<ion-item routerDirection="root" [routerLink]="['/login']" lines="none" detail="false">
+							<ion-icon slot="start" name="log-out-outline"></ion-icon>
+							<ion-label>Sair</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+				</ion-list>
+			</ion-content>
+		</ion-menu>
+		<ion-router-outlet id="main-content"></ion-router-outlet>
+	</ion-split-pane>
 </ion-app>
