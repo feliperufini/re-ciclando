@@ -1,0 +1,87 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-tabs>
+			<ion-tab-bar slot="bottom">
+				<ion-tab-button>
+					<ion-menu-button>
+						<ion-icon id="icon-options" name="menu"></ion-icon>
+					</ion-menu-button>
+				</ion-tab-button>
+				<ion-tab-button [routerLink]="['/home']">
+					<ion-icon name="home"></ion-icon>
+				</ion-tab-button>
+				<ion-tab-button [routerLink]="['/sell']">
+					<ion-icon name="cash"></ion-icon>
+				</ion-tab-button>
+				<ion-tab-button [routerLink]="['/buy']">
+					<ion-icon name="cart"></ion-icon>
+				</ion-tab-button>
+			</ion-tab-bar>
+		</ion-tabs>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-toolbar color="primary">
+	  <ion-title>Troca de Materiais</ion-title>
+	</ion-toolbar>
+	<ion-grid>
+		<ion-row class="ion-justify-content-end">
+			<ion-chip color="warning">
+				<ion-label class="pr-1" color="warning">999999</ion-label>
+				<ion-img src="assets/icon/coin.png" style="width: 1.7rem"></ion-img>
+			</ion-chip>
+		</ion-row>
+		<ion-row class="ion-justify-content-center">
+			<ion-list-header class="ion-text-center">
+				<ion-label>
+					<h2>Total já arrecadado: 125kg</h2>
+				</ion-label>
+			</ion-list-header>
+			<ion-list>
+				<ion-item>
+					<ion-label>Alumínio</ion-label>
+					<ion-note slot="end" color="success">50kg</ion-note>
+				</ion-item>
+				<ion-item>
+					<ion-label>Papel</ion-label>
+					<ion-note slot="end" color="success">30kg</ion-note>
+				</ion-item>
+				<ion-item>
+					<ion-label>Plástico</ion-label>
+					<ion-note slot="end" color="success">30kg</ion-note>
+				</ion-item>
+				<ion-item>
+					<ion-label>Vidro</ion-label>
+					<ion-note slot="end" color="success">10kg</ion-note>
+				</ion-item>
+				<ion-item>
+					<ion-label>Outros</ion-label>
+					<ion-note slot="end" color="success">5kg</ion-note>
+				</ion-item>
+			</ion-list>
+		</ion-row>
+		<ion-row class="ion-justify-content-center pt-1">
+			<ion-label class="">
+				<p>OBS: Apresente o QrCode abaixo para o funcionário!</p>
+			</ion-label>
+		</ion-row>
+		<ion-row class="ion-justify-content-center">
+			<ion-accordion-group class="pt-1" style="width: 80%;">
+				<ion-accordion>
+					<ion-item slot="header">
+						<ion-icon name="qr-code-outline"></ion-icon>
+						<ion-label class="pl-1">Exibir QrCode</ion-label>
+					</ion-item>
+					<ion-list slot="content">
+						<ion-item>
+							<ion-label>
+								<ion-img src="assets/icon/qrcode.png" style="width: 100%"></ion-img>
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-accordion>
+			</ion-accordion-group>
+		</ion-row>
+	</ion-grid>
+</ion-content>

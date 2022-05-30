@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-tabs>
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button>
+                    <ion-menu-button>
+                        <ion-icon id="icon-options" name="menu"></ion-icon>
+                    </ion-menu-button>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/home']">
+                    <ion-icon name="home"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/sell']">
+                    <ion-icon name="cash"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/buy']">
+                    <ion-icon name="cart"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </ion-tabs>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-toolbar color="primary">
+      <ion-title>Pontos de Coleta</ion-title>
+    </ion-toolbar>
+
+</ion-content>

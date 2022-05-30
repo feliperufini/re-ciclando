@@ -4,10 +4,10 @@ import { DataService, Product } from '../../services/data.service';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.page.html',
-  styleUrls: ['./modal.page.scss'],
+  templateUrl: './product-update.page.html',
+  styleUrls: ['./product-update.page.scss'],
 })
-export class ModalPage implements OnInit {
+export class ProductUpdatePage implements OnInit {
   @Input() id: string;
   product: Product = null;
 

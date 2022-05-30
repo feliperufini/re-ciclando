@@ -1,0 +1,113 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-tabs>
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button>
+                    <ion-menu-button>
+                        <ion-icon id="icon-options" name="menu"></ion-icon>
+                    </ion-menu-button>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/home']">
+                    <ion-icon name="home"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/sell']">
+                    <ion-icon name="cash"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button [routerLink]="['/buy']">
+                    <ion-icon name="cart"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </ion-tabs>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="p-0" style="height: 100%; background-color: #253e12;">
+        <ion-row class="ion-justify-content-center pt-1" style="background-color: white;">
+            <img src="assets/icon/user.png" style="width: 10rem;">
+            <h2 class="mb-0">Felipe de Oliveira Andrade</h2>
+            <p class="mt-0 mb-2">felipe.andrade@gmail.com</p>
+        </ion-row>
+        <ion-row class="ion-text-center" style="background-color: #417623; color: white;">
+            <ion-col>
+                <h3>125kg</h3>
+                <p>ARRECADADO</p>
+            </ion-col>
+            <ion-col>
+                <h3>20i</h3>
+                <p>COMPRADOS</p>
+            </ion-col>
+            <ion-col>
+                <h3>99K</h3>
+                <p>MOEDAS</p>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+            <ion-button color="secondary" class="mt-1" style="width: 80%;">Mudar informações do perfil</ion-button>
+        </ion-row>
+        <ion-row class="ion-justify-content-center" style="background-color: #253e12; color: white;">
+            <ion-accordion-group class="pt-1" style="width: 80%;">
+                <ion-accordion value="colors">
+                    <ion-item slot="header">
+                        <ion-label>Total já arrecadado: 125kg</ion-label>
+                    </ion-item>
+                    <ion-list slot="content">
+                        <ion-item>
+                            <ion-label>Alumínio: 50kg</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Papel: 30kg</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Plástico: 30kg</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Vidro: 10kg</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Outros: 5kg</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-row>
+        <ion-row class="ion-justify-content-center" style="background-color: #253e12; color: white;">
+            <ion-accordion-group class="pt-1" style="width: 80%;">
+                <ion-accordion value="colors">
+                    <ion-item slot="header">
+                        <ion-label>Últimos itens comprados...</ion-label>
+                    </ion-item>
+                    <ion-list slot="content">
+                        <ion-item>
+                            <ion-label>15/02/2022 - 30min de Wi-Fi</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>14/02/2022 - Água 295ml</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-row>
+        <ion-row class="ion-justify-content-center" style="background-color: #253e12; color: white;">
+            <ion-accordion-group class="pt-1" style="width: 80%;">
+                <ion-accordion value="colors">
+                    <ion-item slot="header">
+                        <ion-label>Outros...</ion-label>
+                    </ion-item>
+                    <ion-list slot="content">
+                        <ion-item>
+                            <ion-label>14/02/2022 - Você recebeu a conquista "INICIANTE"!</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>14/02/2022 - Você recebeu a conquista "AJUDANTE"!</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>12/02/2022 - Obrigado por fazer parte do projeto!</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-row>
+        <ion-row class="pb-2" style="background-color: #253e12;"></ion-row>
+    </ion-grid>
+</ion-content>

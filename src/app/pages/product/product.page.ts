@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { ModalPage } from '../../modals/modal/modal.page';
+import { ProductUpdatePage } from '../../modals/product-update/product-update.page';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class ProductPage {
 
   async openProduct(product){
     const modal = await this.modaltCtrl.create({
-      component: ModalPage,
+      component: ProductUpdatePage,
       componentProps: { id: product.id },
       breakpoints: [0, 0.8],
       initialBreakpoint: 0.8
