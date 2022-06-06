@@ -1,18 +1,29 @@
 <ion-header>
 </ion-header>
+
 <ion-content>
-    <form [formGroup]="credentials" (ngSubmit)="login()">
-        <ion-item fill="solid" class="ion-margin-bottom">
-            <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
-            <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.erros">E-mail Inválido!</ion-note>
-        </ion-item>
-        <ion-item fill="solid" class="ion-margin-bottom">
-            <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
-            <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.erros">Senha Inválida!
-            </ion-note>
-        </ion-item>
-        <ion-button expand="full" type="submit" [disabled]="!credentials.valid" color="primary">Login</ion-button>
-        <ion-label position="floating">Não possui conta?</ion-label>
-        <ion-button expand="full" type="button" (click)="register()" color="danger">Cadastrar-se</ion-button>
-    </form>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email"  #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+        <ion-col >
+            <ion-button type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
+        </ion-col>
+    </ion-row>
+    <div class="ion-text-center">
+        <ion-label expand="block" color="warning">OU</ion-label><br>
+        <ion-label expand="block" color="warning" [routerLink]="['/password-reset']">Esqueceu a senha?</ion-label>
+    </div>
+    <ion-row>
+        <ion-col>
+            <ion-button expand="block" color="secondary" [routerLink]="['/register']">
+                Cadastre-se
+            </ion-button>
+        </ion-col>
+    </ion-row>
 </ion-content>

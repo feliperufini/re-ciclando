@@ -1,31 +1,25 @@
 <ion-header>
 </ion-header>
 <ion-content>
-    <form>
-        <div class="input-group">
-            <ion-item lines="full">
-                <ion-label position="floating">Nome</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item>
-            <ion-item lines="full">
-                <ion-label position="floating">Sobrenome</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item>
-            <ion-item lines="full">
-                <ion-label position="floating">E-mail</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item>
-            <ion-item lines="full">
-                <ion-label position="floating">Senha</ion-label>
-                <ion-input type="password" required></ion-input>
-            </ion-item>
-            <ion-item lines="full">
-                <ion-label position="floating">Confirmar Senha</ion-label>
-                <ion-input type="password" required></ion-input>
-            </ion-item>
-            <ion-button [routerLink]="['/home']" type="submit" color="primary" expand="block">Cadastrar</ion-button>
-            <ion-label position="floating">Já possui conta?</ion-label>
-            <ion-button [routerLink]="['/login']" color="danger" expand="block">Logar</ion-button>
-        </div>
-    </form>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" #name required></ion-input>
+    </ion-item>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input type="text" #surname required></ion-input>
+    </ion-item>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email" #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full" fill="solid" class="ion-margin-bottom">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-button type="submit" (click)="signUp(email, password)" color="primary" expand="block">Cadastrar</ion-button>
+    <div class="ion-text-center">
+        <ion-label position="floating" color="warning">Já possui conta?</ion-label>
+    </div>
+    <ion-button [routerLink]="['/login']" color="secondary" expand="block">Logar</ion-button>
 </ion-content>

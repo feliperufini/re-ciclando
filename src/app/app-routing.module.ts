@@ -58,7 +58,15 @@ const routes: Routes = [
   {
     path: 'tip-detail',
     loadChildren: () => import('./modals/tip-detail/tip-detail.module').then( m => m.TipDetailPageModule)
+  },  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
   },
+  {
+    path: 'password-reset',
+    loadChildren: () => import('./pages/password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
+  },
+
 ];
 
 @NgModule({

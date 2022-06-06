@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from "./models/authentication-service";
 
 @Component({
 	selector: 'app-root',
@@ -22,5 +23,5 @@ export class AppComponent {
 		{ title: 'Sobre', url: 'about', icon: 'help-circle-outline' },
 	];
 	
-	constructor() { }
+	constructor(public authService: AuthenticationService) { }
 }

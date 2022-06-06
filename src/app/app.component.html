@@ -36,10 +36,10 @@
         </div>
         <ion-list id="outbox-list">
           <ion-menu-toggle auto-hide="false">
-            <ion-item routerDirection="root" [routerLink]="['/login']" lines="none" detail="false">
+            <ion-button type="submit" (click)="authService.SignOut()" expand="block">
               <ion-icon slot="start" name="log-out-outline"></ion-icon>
-              <ion-label>Sair</ion-label>
-            </ion-item>
+              Sair
+            </ion-button>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
