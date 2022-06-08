@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../../models/authentication-service';
+import { ToastController } from '@ionic/angular';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,26 +8,31 @@ import { AuthenticationService } from '../../models/authentication-service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  email: string;
+  password: string;
+
   constructor(
-    public authService: AuthenticationService,
-    public router: Router
+    private auth: AuthService,
+    private toastr: ToastController
   ) {}
 
   ngOnInit() {}
 
-  logIn(email, password) {
-    this.authService
-      .SignIn(email.value, password.value)
-      .then((res) => {
-        if (this.authService.isEmailVerified) {
-          this.router.navigate(['home']);
-        } else {
-          window.alert('Email is not verified');
-          return false;
-        }
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+  login() {
+    if (this.email && this.password) {
+      this.auth.signIn(this.email, this.password);
+    } else {
+      this.toast('Por favor, informe um e-mail e uma senha!', 'warning');
+    }
+  }
+
+  async toast(message, status) {
+    const toast = await this.toastr.create({
+      message: message,
+      color: status,
+      position: 'top',
+      duration: 4000
+    });
+    toast.present();
   }
 }

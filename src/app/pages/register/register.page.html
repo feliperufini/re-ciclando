@@ -3,19 +3,19 @@
 <ion-content>
     <ion-item lines="full" fill="solid" class="ion-margin-bottom">
         <ion-label position="floating">Nome</ion-label>
-        <ion-input type="text" #name required></ion-input>
+        <ion-input type="text" [(ngModel)]="name" required></ion-input>
     </ion-item>
     <ion-item lines="full" fill="solid" class="ion-margin-bottom">
         <ion-label position="floating">Sobrenome</ion-label>
-        <ion-input type="text" #surname required></ion-input>
+        <ion-input type="text" [(ngModel)]="surname" required></ion-input>
     </ion-item>
     <ion-item lines="full" fill="solid" class="ion-margin-bottom">
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input type="email" #email required></ion-input>
+        <ion-input type="email" [(ngModel)]="email" required></ion-input>
     </ion-item>
     <ion-item lines="full" fill="solid" class="ion-margin-bottom">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password" #password required></ion-input>
+        <ion-input type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
     <ion-button type="submit" (click)="signUp(email, password)" color="primary" expand="block">Cadastrar</ion-button>
     <div class="ion-text-center">

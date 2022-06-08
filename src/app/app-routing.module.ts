@@ -1,35 +1,42 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: '**',
+    redirectTo: 'error404',
     pathMatch: 'full'
   },
   {
     path: 'product-update',
-    loadChildren: () => import('./modals/product-update/product-update.module').then( m => m.ProductUpdatePageModule)
+    loadChildren: () => import('./modals/product-update/product-update.module').then( m => m.ProductUpdatePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'product',
-    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
+    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'buy',
-    loadChildren: () => import('./pages/buy/buy.module').then( m => m.BuyPageModule)
+    loadChildren: () => import('./pages/buy/buy.module').then( m => m.BuyPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'checkpoint',
-    loadChildren: () => import('./pages/checkpoint/checkpoint.module').then( m => m.CheckpointPageModule)
+    loadChildren: () => import('./pages/checkpoint/checkpoint.module').then( m => m.CheckpointPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -37,7 +44,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
@@ -45,26 +53,27 @@ const routes: Routes = [
   },
   {
     path: 'sale',
-    loadChildren: () => import('./pages/sale/sale.module').then( m => m.SalePageModule)
+    loadChildren: () => import('./pages/sale/sale.module').then( m => m.SalePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'sell',
-    loadChildren: () => import('./pages/sell/sell.module').then( m => m.SellPageModule)
+    loadChildren: () => import('./pages/sell/sell.module').then( m => m.SellPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'tip',
-    loadChildren: () => import('./pages/tip/tip.module').then( m => m.TipPageModule)
+    loadChildren: () => import('./pages/tip/tip.module').then( m => m.TipPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'tip-detail',
-    loadChildren: () => import('./modals/tip-detail/tip-detail.module').then( m => m.TipDetailPageModule)
-  },  {
-    path: 'verify-email',
-    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+    loadChildren: () => import('./modals/tip-detail/tip-detail.module').then( m => m.TipDetailPageModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'password-reset',
-    loadChildren: () => import('./pages/password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
+    path: 'error404',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
 
 ];
