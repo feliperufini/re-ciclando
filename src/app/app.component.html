@@ -2,11 +2,11 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list class="ml-1" id="inbox-list">
-          <ion-avatar class="mb-1" slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/list/avatar-luke.png" />
+        <ion-list class="ion-margin-start" id="inbox-list">
+          <ion-avatar slot="start">
+            <img src="assets/icon/user.png" />
           </ion-avatar>
-          <ion-list-header>{{user?.name}} {{user?.surname}}</ion-list-header>
+          <ion-list-header class="ion-no-padding" style="min-height: auto;">{{user?.name}} {{user?.surname}}</ion-list-header>
           <ion-note>{{user?.email}}</ion-note>
         </ion-list>
         <ion-list id="inbox-list">
@@ -26,7 +26,8 @@
               </ion-label>
             </ion-item-divider>
             <ion-menu-toggle auto-hide="false" *ngFor="let item of adminMenuItems; let i = index">
-              <ion-item routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-item routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false"
+                routerLinkActive="selected">
                 <ion-icon slot="start" [ios]="item.icon" [md]="item.icon"></ion-icon>
                 <ion-label>{{ item.title }}</ion-label>
               </ion-item>

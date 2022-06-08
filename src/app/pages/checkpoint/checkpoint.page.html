@@ -22,8 +22,43 @@
 </ion-header>
 
 <ion-content>
-    <ion-toolbar color="primary">
-      <ion-title>Pontos de Coleta</ion-title>
+    <ion-toolbar color="success">
+        <ion-title><ion-icon name="location-outline" class="ion-padding-end" style="font-size: larger;"></ion-icon>Pontos de Coleta</ion-title>
     </ion-toolbar>
-
+    <ion-grid class="ion-padding">
+        <ion-row class="ion-justify-content-center">
+            <ion-accordion-group style="width: 100%;">
+                <ion-accordion>
+                    <ion-item slot="header">
+                        <ion-label>Praça dos Migrantes</ion-label>
+                    </ion-item>
+                    <ion-list slot="content">
+                        <ion-item>
+                            <p class="ion-no-margin">R. Dr. Antônio Lázaro de Moura, 323 - Jardim dos Migrantes, Ji-Paraná - RO, 76900-706</p>
+                        </ion-item>
+                        <ion-item>
+                            <p class="ion-no-margin">Aberto: 08:00 - 12:00 e 14:00 - 18:00</p>
+                        </ion-item>
+                    </ion-list> 
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+            <ion-accordion-group style="width: 100%;">
+                <ion-accordion>
+                    <ion-item slot="header">
+                        <ion-label>Parque Pneu</ion-label>
+                    </ion-item>
+                    <ion-list slot="content">
+                        <ion-item>
+                            <p class="ion-no-margin">Av. Mal. Rondon, 1423 - Bairro Centro, Ji-Paraná - RO, 76900-100</p>
+                        </ion-item>
+                        <ion-item>
+                            <p class="ion-no-margin">Aberto: 08:00 - 12:00 e 14:00 - 18:00</p>
+                        </ion-item>
+                    </ion-list> 
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-row>
+    </ion-grid>
 </ion-content>
