@@ -1,6 +1,13 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+// My CSS Start
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+h1, h2, h3, h4, h5, p, ion-button, ion-label, ion-item, ion-note, ion-list-header {
+  font-family: 'Kdam Thmor Pro', sans-serif !important;
+}
+// My CSS End
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

@@ -6,8 +6,8 @@
           <ion-avatar class="mb-1" slot="start">
             <img src="https://ionicframework.com/docs/demos/api/list/avatar-luke.png" />
           </ion-avatar>
-          <ion-list-header>Felipe Andrade</ion-list-header>
-          <ion-note>felipe.andrade@gmail.com</ion-note>
+          <ion-list-header>{{user?.name}} {{user?.surname}}</ion-list-header>
+          <ion-note>{{user?.email}}</ion-note>
         </ion-list>
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false" *ngFor="let item of menuItems; let i = index">
@@ -26,8 +26,7 @@
               </ion-label>
             </ion-item-divider>
             <ion-menu-toggle auto-hide="false" *ngFor="let item of adminMenuItems; let i = index">
-              <ion-item routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false"
-                routerLinkActive="selected">
+              <ion-item routerDirection="root" [routerLink]="[item.url]" lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon slot="start" [ios]="item.icon" [md]="item.icon"></ion-icon>
                 <ion-label>{{ item.title }}</ion-label>
               </ion-item>
@@ -36,10 +35,10 @@
         </div>
         <ion-list id="outbox-list">
           <ion-menu-toggle auto-hide="false">
-            <ion-button type="submit" (click)="authService.SignOut()" expand="block">
+            <ion-item routerDirection="root" (click)="logout()" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" name="log-out-outline"></ion-icon>
-              Sair
-            </ion-button>
+              <ion-label>Sair</ion-label>
+            </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
