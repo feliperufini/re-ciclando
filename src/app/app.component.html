@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list class="ion-margin-start" id="inbox-list">
           <ion-avatar slot="start">
-            <img src="assets/icon/user.png" />
+            <img src="{{user?.photo ? user?.photo : 'assets/icon/user.png'}}"/>
           </ion-avatar>
           <ion-list-header class="ion-no-padding" style="min-height: auto;">{{user?.name}} {{user?.surname}}</ion-list-header>
           <ion-note>{{user?.email}}</ion-note>

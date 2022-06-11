@@ -42,12 +42,11 @@ export class RegisterPage implements OnInit {
           'name': this.name,
           'surname': this.surname,
           'email': this.email,
-          'email_validation': false,
           'password': this.password,
           'photo': null,
           'status': true,
           'coin': 0,
-          'level': 1,
+          'level': 0,
           'created_at': Date.now(),
           'updated_at': Date.now(),
         })

@@ -4,7 +4,6 @@ export interface User {
   surname: string;
   email: string;
   password: string;
-  email_validation: boolean;
   photo: string;
   status: boolean;
   coin: number;

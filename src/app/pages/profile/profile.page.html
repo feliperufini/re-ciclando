@@ -24,9 +24,9 @@
 <ion-content>
     <ion-grid style="height: 100%; background-color: #253e12; padding: 0;">
         <ion-row class="ion-justify-content-center" style="background-color: white; padding-top: 1rem;">
-            <img src="assets/icon/user.png" style="width: 10rem;">
-            <h2>Felipe de Oliveira Andrade</h2>
-            <p class="ion-no-margin ion-margin-bottom">felipe.andrade@gmail.com</p>
+            <img src="{{user?.photo ? user?.photo : 'assets/icon/user.png'}}" style="width: 100%; padding: 0rem 6rem; border-radius: 50%;">
+            <h2 style="width: 100%;text-align: center;">{{user?.name}} {{user?.surname}}</h2>
+            <p style="width: 100%;text-align: center;" class="ion-no-margin ion-margin-bottom">{{user?.email}}</p>
         </ion-row>
         <ion-row class="ion-text-center" style="background-color: #417623; color: white;">
             <ion-col>
@@ -42,10 +42,10 @@
                 <p style="margin: 0;">MOEDAS</p>
             </ion-col>
         </ion-row>
-        <ion-row class="ion-justify-content-center">
+        <!-- <ion-row class="ion-justify-content-center">
             <ion-button color="success" class="ion-margin" style="width: 80%;">Mudar informações do perfil</ion-button>
-        </ion-row>
-        <ion-row class="ion-justify-content-center ion-padding-bottom" style="background-color: #253e12; color: white;">
+        </ion-row> -->
+        <ion-row class="ion-justify-content-center ion-padding-vertical" style="background-color: #253e12; color: white;">
             <ion-accordion-group style="width: 80%;">
                 <ion-accordion style="border-radius: 10px 10px 0px 0px;">
                     <ion-item slot="header">

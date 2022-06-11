@@ -1,112 +1,60 @@
 <ion-header>
-	<ion-toolbar>
-		<ion-tabs>
-			<ion-tab-bar slot="bottom">
-				<ion-tab-button>
-					<ion-menu-button>
-						<ion-icon id="icon-options" name="menu"></ion-icon>
-					</ion-menu-button>
-				</ion-tab-button>
-				<ion-tab-button [routerLink]="['/home']">
-					<ion-icon name="home"></ion-icon>
-				</ion-tab-button>
-				<ion-tab-button [routerLink]="['/sell']">
-					<ion-icon name="cash"></ion-icon>
-				</ion-tab-button>
-				<ion-tab-button [routerLink]="['/buy']">
-					<ion-icon name="cart"></ion-icon>
-				</ion-tab-button>
-			</ion-tab-bar>
-		</ion-tabs>
-	</ion-toolbar>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button>
+          <ion-menu-button>
+            <ion-icon id="icon-options" name="menu"></ion-icon>
+          </ion-menu-button>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/home']">
+          <ion-icon name="home"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/sell']">
+          <ion-icon name="cash"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/buy']">
+          <ion-icon name="cart"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-toolbar color="success">
-		<ion-title>Produtos Disponíveis</ion-title>
-	</ion-toolbar>
-	<ion-row class="ion-justify-content-center">
-		<ion-accordion-group style="width: 100%;">
-			<ion-accordion>
-				<ion-item slot="header" style="width: max-content;">
-					<ion-avatar size="2" slot="start">
-						<img src="https://http2.mlstatic.com/D_NQ_NP_800831-MLU47587972258_092021-O.jpg" />
-					</ion-avatar>
-					<ion-label size="8">
-						<h3>Garrafa de água</h3>
-						<p>Garrafa de água mirenal 295ml Lind'Água sem gás</p>
-					</ion-label>
-					<ion-label size="2">
-						<ion-chip color="warning">
-							<ion-label class="ion-padding-end" color="warning">9</ion-label>
-							<ion-img src="assets/icon/coin.png" style="width: 1.7rem"></ion-img>
-						</ion-chip>
-					</ion-label>
-				</ion-item>
-				<ion-list slot="content">
-					<ion-item style="text-align: -webkit-center;">
-						<ion-label>
-							<ion-img src="assets/icon/qrcode.png" style="width: 70%"></ion-img>
-						</ion-label>
-					</ion-item>
-				</ion-list>
-			</ion-accordion>
-		</ion-accordion-group>
-	</ion-row>
-	<ion-row class="ion-justify-content-center">
-		<ion-accordion-group style="width: 100%;">
-			<ion-accordion>
-				<ion-item slot="header" style="width: max-content;">
-					<ion-avatar size="2" slot="start">
-						<img src="https://http2.mlstatic.com/D_NQ_NP_800831-MLU47587972258_092021-O.jpg" />
-					</ion-avatar>
-					<ion-label size="8">
-						<h3>Garrafa de água</h3>
-						<p>Garrafa de água mirenal 295ml Lind'Água sem gás</p>
-					</ion-label>
-					<ion-label size="2">
-						<ion-chip color="warning">
-							<ion-label class="ion-padding-end" color="warning">9</ion-label>
-							<ion-img src="assets/icon/coin.png" style="width: 1.7rem"></ion-img>
-						</ion-chip>
-					</ion-label>
-				</ion-item>
-				<ion-list slot="content">
-					<ion-item style="text-align: -webkit-center;">
-						<ion-label>
-							<ion-img src="assets/icon/qrcode.png" style="width: 70%"></ion-img>
-						</ion-label>
-					</ion-item>
-				</ion-list>
-			</ion-accordion>
-		</ion-accordion-group>
-	</ion-row>
-	<ion-row class="ion-justify-content-center">
-		<ion-accordion-group style="width: 100%;">
-			<ion-accordion>
-				<ion-item slot="header" style="width: max-content;">
-					<ion-avatar size="2" slot="start">
-						<img src="https://http2.mlstatic.com/D_NQ_NP_800831-MLU47587972258_092021-O.jpg" />
-					</ion-avatar>
-					<ion-label size="8">
-						<h3>Garrafa de água</h3>
-						<p>Garrafa de água mirenal 295ml Lind'Água sem gás</p>
-					</ion-label>
-					<ion-label size="2">
-						<ion-chip color="warning">
-							<ion-label class="ion-padding-end" color="warning">9</ion-label>
-							<ion-img src="assets/icon/coin.png" style="width: 1.7rem"></ion-img>
-						</ion-chip>
-					</ion-label>
-				</ion-item>
-				<ion-list slot="content">
-					<ion-item style="text-align: -webkit-center;">
-						<ion-label>
-							<ion-img src="assets/icon/qrcode.png" style="width: 70%"></ion-img>
-						</ion-label>
-					</ion-item>
-				</ion-list>
-			</ion-accordion>
-		</ion-accordion-group>
-	</ion-row>
+  <ion-toolbar color="success">
+    <ion-title class="ion-no-margin ion-no-padding ion-margin-start">
+      Produtos Disponíveis
+      <ion-chip color="warning" style="background-color: #ffffff; float: right;">
+        <ion-label class="ion-padding-end" color="warning">{{user?.coin}}</ion-label>
+        <ion-img src="assets/icon/coin.png" style="width: 1.5rem"></ion-img>
+      </ion-chip>
+    </ion-title>
+  </ion-toolbar>
+  <ion-row *ngFor="let product of products" class="ion-justify-content-center">
+    <ion-accordion-group style="width: 100%;">
+      <ion-accordion>
+        <ion-item slot="header">
+          <ion-avatar slot="start">
+            <img src="{{product.image}}" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{product.title}}</h2>
+            <p>{{product.description}}</p>
+          </ion-label>
+          <ion-chip color="warning">
+            <ion-label color="warning" class="ion-padding-end">{{product.coin}}</ion-label>
+            <ion-img src="assets/icon/coin.png" style="width: 1.5rem"></ion-img>
+          </ion-chip>
+        </ion-item>
+        <ion-list slot="content">
+          <ion-item style="text-align: -webkit-center;">
+            <ion-label>
+              <ion-img src="assets/icon/qrcode.png" style="width: 70%"></ion-img>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-row>
 </ion-content>
