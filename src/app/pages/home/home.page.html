@@ -2,11 +2,11 @@
 	<ion-toolbar>
 		<ion-tabs>
 			<ion-tab-bar slot="bottom">
-        <ion-tab-button>
-          <ion-menu-button>
+				<ion-tab-button>
+					<ion-menu-button>
 						<ion-icon id="icon-options" name="menu"></ion-icon>
-          </ion-menu-button>
-        </ion-tab-button>
+					</ion-menu-button>
+				</ion-tab-button>
 				<ion-tab-button [routerLink]="['/home']">
 					<ion-icon name="home"></ion-icon>
 				</ion-tab-button>
@@ -21,7 +21,8 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="ion-padding"> <!-- style="--background: #417723" -->
+<ion-content fullscreen class="ion-padding">
+	<!-- style="--background: #417723" -->
 	<div class="ion-text-end">
 		<ion-chip color="warning">
 			<ion-label color="warning" style="padding-right: 0.5rem;">{{user?.coin}}</ion-label>
@@ -31,12 +32,11 @@
 	<ion-slides>
 		<ion-slide>
 			<div class="slide">
-				<img src="assets/icon/plant.png" style="width: 13rem;"/>
-				<h2>Welcome</h2>
-				<p>
-					The ionic conference app is a practical preview of the ionic framework in action, and a
-					demonstration of proper code use.
-				</p>
+				<img src="assets/icon/plant.png" style="width: 13rem;" />
+				<h2>Bem-vindo!</h2>
+				<p>Começe a reciclar hoje!</p>
+				<p>Acesse nosso menu de dicas, se atente para os pontos de coleta mais próximos a você e troque seu
+					material por coins.</p>
 			</div>
 		</ion-slide>
 		<ion-slide>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
-import { ProductUpdatePage } from '../../modals/product-update/product-update.page';
-import { DataService } from '../../services/data.service';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-product',
@@ -9,68 +10,59 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['product.page.scss'],
 })
 export class ProductPage {
-  products = [];
 
-  constructor(private dataservice:DataService, private alertCtrl:AlertController, private modaltCtrl:ModalController) {
-    this.dataservice.getProducts().subscribe(res => {
-      this.products = res;
-    });
+  public products = [];
+
+  constructor(
+    public ngroute: Router,
+    public alertcontrol: AlertController,
+    private fbstore: AngularFirestore,
+    private toastr: ToastController
+  ) {}
+
+  ionViewWillEnter(){
+    this.getProducts();
   }
 
-  async openProduct(product){
-    const modal = await this.modaltCtrl.create({
-      component: ProductUpdatePage,
-      componentProps: { id: product.id },
-      breakpoints: [0, 0.8],
-      initialBreakpoint: 0.8
-    });
-    modal.present();
+  async getProducts(){
+    try{
+      await this.fbstore.collection("product").snapshotChanges()
+      .subscribe(data => {
+        this.products = data.map(result => {
+          
+          return {
+            uid: result.payload.doc.id,
+            title: result.payload.doc.data()["title"],
+            description: result.payload.doc.data()["description"],
+            coin: result.payload.doc.data()["coin"],
+            image: result.payload.doc.data()["image"],
+          }
+
+        });
+      });
+    }catch(error){
+      this.toast(error.message, 'warning');
+    }
   }
 
-  async addProduct(product){
-    const alert = await this.alertCtrl.create({
-      header: 'Adicionar Produto',
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Digite o título...',
-          type: 'text'
-        },
-        {
-          name: 'description',
-          placeholder: 'Digite a descrição...',
-          type: 'textarea'
-        },
-        {
-          name: 'amount',
-          placeholder: 'Digite a quantidade inicial...',
-          type: 'number'
-        },
-        {
-          name: 'coin',
-          placeholder: 'Digite o preço (em coins)...',
-          type: 'number'
-        },
-        {
-          name: 'image',
-          placeholder: 'URL da imagem...',
-          type: 'text'
-        }
-      ],
+  async deleteProduct(uid: string) {
+    const alert = await this.alertcontrol.create({
+      cssClass: 'alt',
+      header: 'Deletar',
+      message: 'Vocês tem certeza que deseja deletar este produto?',
       buttons: [
         {
           text: 'Cancelar',
-          role: 'cancel'
+          role: 'cancel',
+          cssClass: 'danger',
+          handler: () => { }
         },
         {
-          text: 'Adicionar',
-          handler: (res)=>{
-            this.dataservice.addProduct({
-              title: res.title,
-              description: res.description,
-              amount: res.amount,
-              coin: res.coin,
-              image: res.image
+          text: 'Deletar',
+          handler: () => {
+            this.fbstore.doc("product/" + uid).delete().then(data => {
+              this.ngroute.navigate(['product']);
+              this.toast('Produto deletado com sucesso!', 'success');
             });
           }
         }
@@ -78,4 +70,15 @@ export class ProductPage {
     });
     await alert.present();
   }
+
+  async toast(message, status) {
+    const toast = await this.toastr.create({
+      message: message,
+      color: status,
+      position: 'top',
+      duration: 4000
+    });
+    toast.present();
+  }
+
 }

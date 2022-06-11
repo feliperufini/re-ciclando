@@ -10,19 +10,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'error404',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'product-update',
-    loadChildren: () => import('./modals/product-update/product-update.module').then( m => m.ProductUpdatePageModule),
-    canActivate: [AuthGuard]
   },
   {
     path: 'product',
     loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'product-add',
+    loadChildren: () => import('./pages/product-add/product-add.module').then( m => m.ProductAddPageModule)
+  },
+  // {
+  //   path: 'product-edit/:id',
+  //   loadChildren: () => import('./pages/product-edit/product-edit.module').then( m => m.ProductEditPageModule)
+  // },
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
@@ -67,9 +70,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'tip-detail',
-    loadChildren: () => import('./modals/tip-detail/tip-detail.module').then( m => m.TipDetailPageModule),
-    canActivate: [AuthGuard]
+    path: 'worker',
+    loadChildren: () => import('./pages/worker/worker.module').then( m => m.WorkerPageModule)
   },
   {
     path: 'error404',

@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit {
     private afs: AngularFirestore,
     private afauth: AngularFireAuth,
     private router: Router,
-    private LoadingCtrl: LoadingController,
+    private loadingCtrl: LoadingController,
     private toastr: ToastController
   ) {}
 
@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
   
   async signUp() {
     if (this.name && this.surname && this.email && this.password) {
-      const loading = await this.LoadingCtrl.create({
+      const loading = await this.loadingCtrl.create({
         message: 'Processando...',
         spinner: 'crescent',
         showBackdrop: true

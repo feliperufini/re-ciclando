@@ -13,7 +13,9 @@ export class AppComponent {
 
   public adminMenuItems = [
     { title: 'Produtos', url: 'product', icon: 'pricetags-outline' },
+    { title: 'Funcionários', url: 'worker', icon: 'person-add-outline' },
     { title: 'Receber Material', url: 'sale', icon: 'help-circle-outline' },
+    { title: 'Venda', url: 'sale', icon: 'cart-outline' },
   ];
 
   public menuItems = [

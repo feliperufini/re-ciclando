@@ -22,21 +22,46 @@
 </ion-header>
 
 <ion-content>
+
   <ion-toolbar color="success">
     <ion-title>
+      <ion-icon name="pricetags-outline" class="ion-padding-end" style="font-size: larger;"></ion-icon>
       Lista de Produtos
     </ion-title>
   </ion-toolbar>
-  <ion-list>
-    <ion-item *ngFor="let product of products" (click)="openProduct(product)">
-      <ion-label>
-        {{product.title}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="addProduct()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</ion-content>
+
+    <ion-list lines="none">
+      <ion-item-sliding *ngFor="let product of products">
+        <ion-item class="no-padding">
+          <ion-avatar slot="start">
+            <img src="{{product.image}}" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{product.title}}</h2>
+            <p>{{product.description}}</p>
+          </ion-label>
+          <ion-chip color="warning">
+            <ion-label color="warning" class="ion-padding-end">{{product.coin}}</ion-label>
+            <ion-img src="assets/icon/coin.png" style="width: 1.5rem"></ion-img>
+          </ion-chip>
+        </ion-item>
+        <!-- <ion-item-options side="start">
+          <ion-item-option [routerLink]="['/product-edit/',product.uid]">
+            <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options> -->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deleteProduct(product.uid)">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/product-add']" style="--background: #2dd36f;">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>

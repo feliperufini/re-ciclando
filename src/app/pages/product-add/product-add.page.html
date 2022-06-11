@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastrar Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input required type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-textarea required type="text" [(ngModel)]="description" name="description" rows="4" cols="20"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input required type="number" [(ngModel)]="amount" name="amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Coin</ion-label>
+      <ion-input required type="number" [(ngModel)]="coin" name="coin"></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-bottom">
+      <ion-label position="floating">Imagem URL</ion-label>
+      <ion-input type="text" [(ngModel)]="image" name="image"></ion-input>
+    </ion-item>
+    <ion-button class="ion-margin-top" expand="block" (click)="addProduct()" color="success">Salvar</ion-button>
+  </ion-list>
+</ion-content>
